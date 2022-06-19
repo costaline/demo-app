@@ -1,0 +1,40 @@
+name: CD Github Pages
+
+on:
+ workflow_run:
+    workflows: ["CI"]
+    branches: [master, develop]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    name: Deploy
+
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Create build
+        run: |
+          yarn install
+          PUBLIC_URL=${{ secrets.GP_PUBLIC_URL }} yarn build
+
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: gh-pages
+          build_dir: build
+          commit_message: "cd: deploy to github pages"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
