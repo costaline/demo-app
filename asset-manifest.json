@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "https://costaline.github.io/fe-d-a/static/css/main.33e000ce.css",
+    "main.js": "https://costaline.github.io/fe-d-a/static/js/main.087957a2.js",
+    "static/js/27.9024d10a.chunk.js": "https://costaline.github.io/fe-d-a/static/js/27.9024d10a.chunk.js",
+    "static/media/Roboto-BoldItalic.ttf": "https://costaline.github.io/fe-d-a/static/media/Roboto-BoldItalic.87d61cea6fe1d235d4a8.ttf",
+    "static/media/Roboto-Italic.ttf": "https://costaline.github.io/fe-d-a/static/media/Roboto-Italic.87f3afe16a8c3c370634.ttf",
+    "static/media/Roboto-Regular.ttf": "https://costaline.github.io/fe-d-a/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
+    "static/media/Roboto-Bold.ttf": "https://costaline.github.io/fe-d-a/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
+    "index.html": "https://costaline.github.io/fe-d-a/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.33e000ce.css",
+    "static/js/main.087957a2.js"
+  ]
+}
