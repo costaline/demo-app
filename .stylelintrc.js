@@ -1,7 +1,8 @@
 module.exports = {
 	extends: [
 		'stylelint-config-css-modules',
-		'stylelint-config-property-sort-order-smacss',
+		'stylelint-config-clean-order',
+		// 'stylelint-config-hudochenkov/order',
 		'stylelint-config-prettier',
 	],
 
@@ -30,17 +31,21 @@ module.exports = {
 			},
 		],
 		'selector-class-pattern': null,
+		'max-empty-lines': [1, {ignore: ['comments']}]
 	},
 
 	overrides: [
 		{
 			files: ['*.scss', '**/*.scss', '*.sass', '**/*.sass'],
+
 			extends: [
 				'stylelint-config-standard-scss',
 				'stylelint-config-css-modules',
-				'stylelint-config-property-sort-order-smacss',
+				'stylelint-config-clean-order',
+				// 'stylelint-config-hudochenkov/order',
 				'stylelint-config-prettier',
 			],
+
 			rules: {
 				'value-keyword-case': [
 					'lower',
@@ -65,10 +70,41 @@ module.exports = {
 
 			rules: {
 				'declaration-block-trailing-semicolon': 'never',
-				'selector-type-no-unknown': [true, { ignoreTypes: ["/^\+/"] }]
+				'selector-type-no-unknown': null
 			},
 
-			customSyntax: 'sugarss',
+			customSyntax: 'postcss-sass'
+		},
+
+		{
+			files: ["*.stylus", "*.styl", "**/*.stylus", "**/*.styl"],
+
+			extends: [
+				'stylelint-stylus/standard',
+				'stylelint-config-css-modules',
+				'stylelint-config-clean-order',
+				// 'stylelint-config-hudochenkov/order',
+				'stylelint-config-prettier'
+			],
+
+			rules: {
+				'declaration-block-trailing-semicolon': 'never',
+
+				'stylus/declaration-colon': 'always',
+				'stylus/indentation': 'tab',
+			}
+		},
+
+		{
+			files: ["*.stylus", "**/*.stylus"],
+
+			rules: {
+				'declaration-block-trailing-semicolon': 'always',
+
+				'stylus/declaration-colon': 'always',
+				'stylus/pythonic': 'never',
+				'stylus/semicolon': 'always',
+			}
 		},
 
 		{
@@ -87,14 +123,15 @@ module.exports = {
 				'value-keyword-case': null
 			},
 
-			processors: ['stylelint-processor-styled-components'],
-
 			extends: [
 				'stylelint-config-standard-scss',
-				'stylelint-config-property-sort-order-smacss',
-				'stylelint-config-styled-components',
-				'stylelint-config-prettier',
+				'@stylelint/postcss-css-in-js',
+				'stylelint-config-clean-order',
+				// 'stylelint-config-hudochenkov/order',
+				'stylelint-config-prettier'
 			],
+
+			customSyntax: '@stylelint/postcss-css-in-js'
 		},
 	],
 }

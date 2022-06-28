@@ -44,6 +44,13 @@ module.exports = {
 			{ props: true, ignorePropertyModificationsForRegex: ['^draft'] },
 		],
 		'no-restricted-exports': 'off',
+		'no-underscore-dangle': [
+			'warn',
+			{
+				allowAfterThis: true,
+				allowAfterSuper: true,
+			},
+		],
 		'no-unused-vars': [
 			'warn',
 			{
@@ -109,6 +116,7 @@ module.exports = {
 			'warn',
 			{ extensions: ['js', 'jsx', '.tsx'] },
 		],
+		'react/jsx-fragments': 'off',
 		'react/jsx-key': ['warn', { checkKeyMustBeforeSpread: true }],
 		'react/jsx-no-useless-fragment': ['warn', { allowExpressions: true }],
 		'react/jsx-props-no-spreading': 'off',
@@ -161,9 +169,10 @@ module.exports = {
 					],
 					[
 						// Styles
-						'\\.module\\.(css|scss|sass)$',
-						'\\.scoped\\.(css|scss|sass)$',
-						'\\.(css|scss|sass)$',
+						'\\.(css|scss|sass|styl|stylus)$',
+						'\\.scoped\\.(css|scss|sass|styl|stylus)$',
+						'\\.module\\.(css|scss|sass|styl|stylus)$',
+						'\\.(emcss)$', // emotion css-in-js
 						// Images
 						'^.+\\.bmp$',
 						'^.+\\.jpe?g$',

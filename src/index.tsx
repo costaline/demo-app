@@ -7,6 +7,7 @@ import 'sanitize.css'
 import 'sanitize.css/forms.css'
 import 'sanitize.css/typography.css'
 import './assets/fonts/index.scss'
+import './assets/styles/variables.styl'
 import './assets/styles/scaffolding.scss'
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
