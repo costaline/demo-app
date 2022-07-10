@@ -26,3 +26,5 @@ jobs:
           BRANCH: vercel
           FOLDER: build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SQUASH_HISTORY: true
+          MESSAGE: "cd: deploy to vercel ({sha})"
