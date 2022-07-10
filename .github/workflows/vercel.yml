@@ -1,4 +1,4 @@
-name: deploy website
+name: deploy to vercel
 on:
   push:
     branches: [master, develop]
@@ -22,7 +22,7 @@ jobs:
       - name: Deploy
         uses: amondnet/vercel-action@v25
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-token: ${{ secrets.VERCEL_ACCESS_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           vercel-args: '--prod'
           vercel-org-id: ${{ secrets.ORG_ID}}
